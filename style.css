@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -58,6 +59,11 @@ main {
     width: 80px;
 }
 
+.back {
+    position: absolute;
+    display: none;
+}
+
 .span {
     background: #F2F2F2;
     width: 100px;
@@ -72,6 +78,13 @@ main {
 .span img {
     width: 79px;
     height: 68px;
+}
+
+.span:hover {
+    background-color: #404eed91;
+    cursor: pointer;
+    transform: scale(0.9);
+    transition: .2s;
 }
 
 /*modelos p*/
@@ -269,4 +282,10 @@ main {
 
 .quadros span {
     font-weight: 600;
+}
+
+.quadros:hover {
+    transform: scale(1.1);
+    transition: .3s;
+    cursor: pointer;
 }
