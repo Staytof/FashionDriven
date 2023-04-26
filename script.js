@@ -106,32 +106,37 @@ function tshirt9() {
 
 }
 
-let fila1 = document.getElementById('fila1');
-let fila2 = document.getElementById('fila2');
-let fila3 = document.getElementById('fila3');
+let spans = [
+    span1 = document.getElementById('span1'),
+    span2 = document.getElementById('span2'),
+    span3 = document.getElementById('span3'),
+
+    span4 = document.getElementById('span4'),
+    span5 = document.getElementById('span5'),
+    span6 = document.getElementById('span6'),
+
+    span7 = document.getElementById('span7'),
+    span8 = document.getElementById('span8'),
+    span9 = document.getElementById('span9')
+];
 
 let button = document.getElementById('btn');
 
-function checkAllSectionsSelected() {
-    if (fila1.classList.contains("selected") &&
-        fila2.classList.contains("selected") &&
-        fila3.classList.contains("selected")) {
-        button.style.backgroundColor = "#404EED";
-        button.style.cursor = "pointer";
-    }
-}
+// adiciona um evento de clique para cada span
+spans.forEach(span => {
+    span.addEventListener('click', () => {
+        // verifica se pelo menos um span foi selecionado em cada linha
+        let linha1 = [span1, span2, span3].some(span => span.classList.contains('selecionado'));
+        let linha2 = [span4, span5, span6].some(span => span.classList.contains('selecionado'));
+        let linha3 = [span7, span8, span9].some(span => span.classList.contains('selecionado'));
 
-fila1.addEventListener("click", function () {
-    this.classList.toggle("selected");
-    checkAllSectionsSelected();
-});
+        // se um span foi selecionado em cada linha, altera a cor do botão
+        if (linha1 && linha2 && linha3) {
+            button.style.backgroundColor = '#404EED';
+            button.style.cursor = 'pointer';
+        }
 
-fila2.addEventListener("click", function () {
-    this.classList.toggle("selected");
-    checkAllSectionsSelected();
-});
-
-fila3.addEventListener("click", function () {
-    this.classList.toggle("selected");
-    checkAllSectionsSelected();
+        // alterna a classe 'selecionado' no span clicado
+        span.classList.toggle('selecionado');
+    });
 });
