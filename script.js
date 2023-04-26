@@ -1,3 +1,7 @@
+//const nome = prompt('Qual seu nome?')
+
+//nome;
+
 function tshirt1() {
 
     let cover1 = document.getElementById('cover1');
@@ -122,21 +126,31 @@ let spans = [
 
 let button = document.getElementById('btn');
 
-// adiciona um evento de clique para cada span
+let link = document.getElementById('link');
+
+
 spans.forEach(span => {
     span.addEventListener('click', () => {
-        // verifica se pelo menos um span foi selecionado em cada linha
-        let linha1 = [span1, span2, span3].some(span => span.classList.contains('selecionado'));
-        let linha2 = [span4, span5, span6].some(span => span.classList.contains('selecionado'));
-        let linha3 = [span7, span8, span9].some(span => span.classList.contains('selecionado'));
-
-        // se um span foi selecionado em cada linha, altera a cor do botão
-        if (linha1 && linha2 && linha3) {
-            button.style.backgroundColor = '#404EED';
-            button.style.cursor = 'pointer';
-        }
-
-        // alterna a classe 'selecionado' no span clicado
+        let linha1 = [span1, span2, span3].every(span => span.classList.contains('selecionado'));
+        let linha2 = [span4, span5, span6].every(span => span.classList.contains('selecionado'));
+        let linha3 = [span7, span8, span9].every(span => span.classList.contains('selecionado'));
         span.classList.toggle('selecionado');
     });
+});
+
+// função auxiliar para verificar se uma string é uma URL válida
+function isURL(str) {
+    let pattern = /^(ftp|http|https):\/\/[^ "]+$/;
+    return pattern.test(str);
+}
+
+// adiciona um evento de mudança no input do link para verificar a validade da URL e alterar a cor do botão
+link.addEventListener('input', () => {
+    if (isURL(link.value)) {
+        button.style.backgroundColor = '#404EED';
+        button.style.cursor = 'pointer';
+    } else {
+        button.style.backgroundColor = '';
+        button.style.cursor = '';
+    }
 });
