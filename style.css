@@ -8,7 +8,7 @@
 body {
     background: #404EED;
     font-family: 'Roboto', sans-serif;
-    color: #5a5a5a;
+    color: #232323
 }
 
 nav {
@@ -53,6 +53,7 @@ main {
     display: flex;
     justify-content: space-between;
     padding: 5px;
+    margin-top: 8px;
 }
 
 .fila1 .span>img {
@@ -96,7 +97,7 @@ main {
 }
 
 .tshirt>p {
-    margin-top: 5px;
+    margin-top: 10px;
 }
 
 .camiseta {
@@ -106,7 +107,7 @@ main {
 }
 
 .camiseta>p {
-    margin-top: 5px;
+    margin-top: 10px;
 }
 
 .manga-longa {
@@ -116,13 +117,13 @@ main {
 }
 
 .manga-longa>p {
-    margin-top: 5px;
+    margin-top: 10px;
 }
 
 /*golas*/
 
 .golas {
-    margin-top: 14px;
+    margin-top: 20px;
 }
 
 .fila2 {
@@ -131,6 +132,7 @@ main {
     display: flex;
     justify-content: space-between;
     padding: 5px;
+    margin-top: 8px;
 }
 
 .fila2 .span>img {
@@ -147,7 +149,7 @@ main {
 }
 
 .golaV>p {
-    margin-top: 5px;
+    margin-top: 10px;
 }
 
 .golaR {
@@ -157,7 +159,7 @@ main {
 }
 
 .golaR>p {
-    margin-top: 5px;
+    margin-top: 10px;
 }
 
 .golaP {
@@ -167,13 +169,13 @@ main {
 }
 
 .golaP>p {
-    margin-top: 5px;
+    margin-top: 10px;
 }
 
 /*tecido*/
 
 .tecido {
-    margin-top: 14px;
+    margin-top: 20px;
 }
 
 .fila3 {
@@ -182,6 +184,7 @@ main {
     display: flex;
     justify-content: space-between;
     padding: 5px;
+    margin-top: 8px;
 }
 
 
@@ -199,7 +202,7 @@ main {
 
     background-color: rgb(255, 255, 255);
 
-    margin-top: 20px;
+    margin-top: 28px;
 }
 
 .link {
@@ -222,7 +225,7 @@ main {
     height: 38px;
     border-radius: 10px;
     margin-top: 20px;
-    background-color: #5a5a5a5b;
+    background-color: #C4C4C4;
     align-items: center;
     display: flex;
     justify-content: center;
@@ -232,6 +235,7 @@ main {
     color: #ffffff;
     font-size: 18px;
 }
+
 
 .s2 {
     width: 670.49px;
@@ -244,7 +248,7 @@ main {
     width: 100%;
     height: 280px;
     display: flex;
-    background-color: #e9e6e6;
+    background-color: #F2F2F2;
     display: flex;
     align-items: center;
     justify-content: center;
