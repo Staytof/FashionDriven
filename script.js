@@ -1,6 +1,4 @@
-//const nome = prompt('Qual seu nome?')
-
-//nome;
+const nome = prompt('Qual seu nome?')
 
 function tshirt1() {
 
@@ -128,7 +126,6 @@ let button = document.getElementById('btn');
 
 let link = document.getElementById('link');
 
-
 spans.forEach(span => {
     span.addEventListener('click', () => {
         let linha1 = [span1, span2, span3].some(span => span.classList.contains('selecionado'));
@@ -149,5 +146,32 @@ spans.forEach(span => {
         });
 
         span.classList.toggle('selecionado');
+    });
+});
+
+// Encomendar blusa
+
+button.addEventListener('click', () => {
+    fetch('https://mock-api.driven.com.br/api/v4/shirts-api/shirts', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            model: 't-shirt',
+            neck: 'v-neck',
+            material: 'cotton',
+            image: 'https://exemplo.com/imagem.jpg',
+            owner: 'John Doe',
+            author: nome
+        })
+    }).then(response => {
+        if (response.ok) {
+            alert('Encomenda realizada com sucesso!');
+        } else {
+            throw new Error('Ops, não conseguimos processar sua encomenda.');
+        }
+    }).catch(error => {
+        alert(error.message);
     });
 });

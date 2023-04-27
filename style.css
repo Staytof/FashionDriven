@@ -256,12 +256,12 @@ main {
 }
 
 .pedidos {
-    width: 60%;
+    width: 80%;
     font-size: 18px;
 }
 
 .lastP {
-    width: 60%;
+    width: 80%;
     height: 190px;
     margin-top: 10px;
     display: flex;
