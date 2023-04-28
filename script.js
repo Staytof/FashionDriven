@@ -109,69 +109,77 @@ function tshirt9() {
 }
 
 let spans = [
-    span1 = document.getElementById('span1'),
-    span2 = document.getElementById('span2'),
-    span3 = document.getElementById('span3'),
+    tshirt = document.getElementById('span1'),
+    camiseta = document.getElementById('span2'),
+    mangaLonga = document.getElementById('span3'),
 
-    span4 = document.getElementById('span4'),
-    span5 = document.getElementById('span5'),
-    span6 = document.getElementById('span6'),
+    golaV = document.getElementById('span4'),
+    golaRedonda = document.getElementById('span5'),
+    golaPolo = document.getElementById('span6'),
 
-    span7 = document.getElementById('span7'),
-    span8 = document.getElementById('span8'),
-    span9 = document.getElementById('span9')
+    Seda = document.getElementById('span7'),
+    Algodao = document.getElementById('span8'),
+    Poliester = document.getElementById('span9')
 ];
 
 let button = document.getElementById('btn');
 
-let link = document.getElementById('link');
+const link = document.getElementById('link');
 
 spans.forEach(span => {
     span.addEventListener('click', () => {
-        let linha1 = [span1, span2, span3].some(span => span.classList.contains('selecionado'));
-        let linha2 = [span4, span5, span6].some(span => span.classList.contains('selecionado'));
-        let linha3 = [span7, span8, span9].some(span => span.classList.contains('selecionado'));
+        const modelo = [tshirt, camiseta, mangaLonga].some(span => span.classList.contains('selecionado'));
+        const gola = [golaV, golaRedonda, golaPolo].some(span => span.classList.contains('selecionado'));
+        const material = [Seda, Algodao, Poliester].some(span => span.classList.contains('selecionado'));
 
         // função auxiliar para verificar se uma string é uma URL válida
+
         function isURL(str) {
             let pattern = /^(ftp|http|https):\/\/[^ "]+$/;
             return pattern.test(str);
         }
 
         link.addEventListener('input', () => {
-            if (isURL(link.value) && linha1 && linha2 && linha3) {
+            if (isURL(link.value) && modelo && gola && material) {
                 button.style.backgroundColor = '#404EED';
                 button.style.cursor = 'pointer';
             }
         });
 
         span.classList.toggle('selecionado');
+
     });
 });
 
-// Encomendar blusa
 
 button.addEventListener('click', () => {
-    fetch('https://mock-api.driven.com.br/api/v4/shirts-api/shirts', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            model: 't-shirt',
-            neck: 'v-neck',
-            material: 'cotton',
-            image: 'https://exemplo.com/imagem.jpg',
-            owner: 'John Doe',
-            author: nome
+    axios.post('https://mock-api.driven.com.br/api/v4/shirts-api/shirts', {
+        model: modelo,
+        neck: gola,
+        material: material,
+        image: link.value,
+        owner: nome,
+        author: nome
+    })
+        .then(response => {
+            if (response.status === 200) {
+                alert('Encomenda realizada com sucesso!');
+            } else {
+                throw new Error('Ops, não conseguimos processar sua encomenda.');
+            }
         })
-    }).then(response => {
-        if (response.ok) {
-            alert('Encomenda realizada com sucesso!');
-        } else {
-            throw new Error('Ops, não conseguimos processar sua encomenda.');
-        }
-    }).catch(error => {
-        alert(error.message);
-    });
+        .catch(error => {
+            alert(error.message);
+        });
 });
+
+
+axios.get('https://mock-api.driven.com.br/api/v4/shirts-api/shirts')
+    .then(response => {
+        const data = response.data;
+        console.log(data);
+        // fazer algo com os dados retornados
+    })
+    .catch(error => {
+        console.log(error);
+    });
