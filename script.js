@@ -151,13 +151,16 @@ spans.forEach(span => {
     });
 });
 
+let model = '';
+let neck = '';
+let material = '';
 
 button.addEventListener('click', () => {
     axios.post('https://mock-api.driven.com.br/api/v4/shirts-api/shirts', {
-        model: modelo,
-        neck: gola,
-        material: material,
-        image: link.value,
+        model: 't-shirt',
+        neck: 'v-neck',
+        material: 'cotton',
+        image: 'https://www.google.com.br',
         owner: nome,
         author: nome
     })
